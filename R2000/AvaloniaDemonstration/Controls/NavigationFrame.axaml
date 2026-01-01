@@ -1,5 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:controls="using:AvaloniaDemonstration.Controls">
 	<ControlTheme x:Key="{x:Type controls:NavigationFrame}" TargetType="controls:NavigationFrame">
 		<Style Selector="^:is(TransitioningContentControl)">
 			<Setter Property="PageTransition">

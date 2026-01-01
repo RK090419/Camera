@@ -1,21 +1,32 @@
-using Avalonia;
-using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Data.Core;
-using Avalonia.Data.Core.Plugins;
 using System.Linq;
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using AvaloniaDemonstration.ViewModels;
 using AvaloniaDemonstration.Views;
+using Microsoft.Extensions.DependencyInjection;
+using R86.Avalonia.Hosting;
 
 namespace AvaloniaDemonstration;
 
-public partial class App : Application
+public partial class App : HostedApplication<App>
 {
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
     }
+    public IServiceScope? CurrentScope { get; private set; }
 
+    public void CreateScope()
+    {
+        App.Current.CurrentScope = Services.CreateScope();
+    }
+
+    internal void DisposeScope()
+    {
+        App.Current.CurrentScope?.Dispose();
+        App.Current.CurrentScope = null;
+    }
     public override void OnFrameworkInitializationCompleted()
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)

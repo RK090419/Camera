@@ -1,5 +1,9 @@
-﻿using Avalonia;
-using System;
+﻿using System;
+using Avalonia;
+using AvaloniaDemonstration.Helpers;
+using AvaloniaDemonstration.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace AvaloniaDemonstration;
 
@@ -9,10 +13,34 @@ sealed class Program
     // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
     // yet and stuff might break.
     [STAThread]
-    public static void Main(string[] args) => BuildAvaloniaApp()
-        .StartWithClassicDesktopLifetime(args);
+    public static void Main(string[] args)
+    {
+        var builder = App.CreateBuilder(args, BuildAvaloniaApp);
 
-    // Avalonia configuration, don't remove; also used by visual designer.
+        //builder.Services.AddSingleton<IViewProvider, ViewProvider>();
+        //builder.Services.AddSingleton<INavigationService>(x =>
+        //{
+        //    return new NavigationService(() => x.GetRequiredService<IViewProvider>(), App.Current.GetVisualInstance<MainWindow>().PageFrame);
+        //});
+
+        builder.Services.AddSingleton<MainView>();
+        builder.Services.AddSingleton<CameraView>();
+
+        builder.Services.AddSingleton<MainWindowViewModel>();
+        builder.Services.AddSingleton<MainViewModel>();
+        builder.Services.AddSingleton<CameraViewModel>();
+
+
+        App app = builder.Build();
+
+        var logger = app.Services.GetRequiredService<ILogger<Program>>();
+        GlobalLogger.Initialize(logger);
+
+        logger.LogInformation("Application starting...");
+
+        app.Run();
+    }
+
     public static AppBuilder BuildAvaloniaApp()
         => AppBuilder.Configure<App>()
             .UsePlatformDetect()

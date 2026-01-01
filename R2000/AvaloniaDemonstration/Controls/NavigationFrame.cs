@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Presenters;
@@ -17,11 +16,12 @@ public sealed class NavigationFrame : TransitioningContentControl
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);
-        var presenter = e.NameScope.Find<ContentPresenter>("PART_ContentPresenter2") ??
-            throw new InvalidOperationException
-            ($"{nameof(NavigationFrame)} requires a ContentPresenter named 'PART_ContentPresenter2' in its ControlTemplate.");
 
-        RegisterContentPresenter(presenter);
+        var presenter = e.NameScope.Find<ContentPresenter>("PART_ContentPresenter2");
+        if (presenter is not null)
+        {
+            RegisterContentPresenter(presenter);
+        }
     }
 
     public void Navigate(object? newContent)
