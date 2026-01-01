@@ -28,5 +28,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CameraLib\CameraLib.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" />
   </ItemGroup>
 </Project>
