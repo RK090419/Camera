@@ -3,6 +3,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="AvaloniaDemonstration.CameraView">
-  Welcome to Avalonia!
+             x:Class="AvaloniaDemonstration.CameraView"
+			 xmlns:vm="using:AvaloniaDemonstration.ViewModels"
+			 x:DataType="vm:CameraViewModel">
+	<Grid Background="Blue">
+		<Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Back" Command="{Binding BackCommand}" Background="White"/>
+	</Grid>
 </UserControl>

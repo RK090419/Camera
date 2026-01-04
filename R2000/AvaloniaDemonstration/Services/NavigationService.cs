@@ -15,48 +15,6 @@ public partial class NavigationService : INavigationService
         _frame = frame;
     }
 
-    public event EventHandler? CanGoBackChanged;
-
-    public void ClearNavigationHistory()
-    {
-        _frame.ClearHistory();
-
-        CanGoBackChanged?.Invoke(this, EventArgs.Empty);
-    }
-
-    public bool Navigate(Type dst)
-    {
-        Dispatcher.UIThread.VerifyAccess();
-        App.Current.DisposeScope();
-
-        var view = _viewProvider().GetView(dst);
-
-        if (view is not IViewBase vb)
-        {
-            return false;
-        }
-
-        var dstViewModel = _viewProvider().GetViewModel(vb.ViewModelType);
-
-        vb.SetViewModel(dstViewModel);
-
-        _frame.Navigate(vb);
-
-        CanGoBackChanged?.Invoke(this, EventArgs.Empty);
-
-        return true;
-    }
-
-    public void Clear()
-    {
-        if (_frame.Content is not null)
-        {
-            _frame.Navigate(null);
-
-            CanGoBackChanged?.Invoke(this, EventArgs.Empty);
-        }
-    }
-
     public bool Navigate<TTo>(object? navigationKey = null) where TTo : IViewBase
     {
         Dispatcher.UIThread.VerifyAccess();
@@ -68,9 +26,6 @@ public partial class NavigationService : INavigationService
         dst.SetViewModel(dstViewModel);
 
         _frame.Navigate(dst);
-
-        CanGoBackChanged?.Invoke(this, EventArgs.Empty);
-
         return true;
     }
 
@@ -91,9 +46,6 @@ public partial class NavigationService : INavigationService
         dst.SetViewModel(dstViewModel);
 
         _frame.Navigate(dst);
-
-        CanGoBackChanged?.Invoke(this, EventArgs.Empty);
-
         return true;
     }
 }
