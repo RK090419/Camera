@@ -1,4 +1,4 @@
-﻿namespace WpfDemonstration.Helpers;
+﻿namespace R2000Wpf.Helpers;
 
 public static class UIHelpers
 {

@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Core.Interfaces;
-using WpfDemonstration.Helpers;
-namespace WpfDemonstration.Services;
+using R2000Wpf.Helpers;
+namespace R2000Wpf.Services;
 public abstract partial class ViewModelBase : ObservableObject, IViewModelBase
 {
     private CancellationTokenSource? _cts;

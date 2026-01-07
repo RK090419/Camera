@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Core.Interfaces;
 
-namespace WpfDemonstration.Services;
+namespace R2000Wpf.Services;
 public abstract class ViewBase : UserControl { }
 
 public abstract class ViewBase<T> : ViewBase, IViewBase where T : IViewModelBase
