@@ -19,6 +19,7 @@ public static class Program
         builder.Services.AddSingleton<MainWindow>();
 
         app = (App)builder.Build();
+        app.InitLogger();
 
         var mainWindow = app.Services!.GetRequiredService<MainWindow>();
 
