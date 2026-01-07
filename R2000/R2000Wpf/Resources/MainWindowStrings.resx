@@ -123,4 +123,7 @@
   <data name="Greeting" xml:space="preserve">
     <value>Hellow from strings file</value>
   </data>
+  <data name="ThrowException" xml:space="preserve">
+    <value>Throw Exception</value>
+  </data>
 </root>

@@ -50,7 +50,9 @@ public abstract class HostedApplication : Application, IHostedService
             app._host = host;
             app.Services = host.Services;
             app.HostLifetime = host.Services.GetRequiredService<IHostApplicationLifetime>();
-            return (HostedApplication)Application.Current;
+            app.UseExceptionHandler((ex, canHandle) => true);
+
+            return app;
         }
 
         void IHostApplicationBuilder.ConfigureContainer<TContainerBuilder>(IServiceProviderFactory<TContainerBuilder> factory, Action<TContainerBuilder>? configure)

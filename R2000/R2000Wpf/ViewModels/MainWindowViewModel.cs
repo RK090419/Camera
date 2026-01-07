@@ -33,4 +33,9 @@ public sealed partial class MainWindowViewModel : ViewModelBase
         current = CultureInfo.CurrentUICulture;
         _logger.LogInformation("CultureInfo changed to {current}", current);
     }
+    [RelayCommand]
+    void ThrowException()
+    {
+        throw new InvalidOperationException("Test unhandled exception!");
+    }
 }

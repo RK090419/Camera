@@ -77,5 +77,14 @@ namespace R2000Wpf.Resources {
                 return ResourceManager.GetString("Greeting", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Throw Exception.
+        /// </summary>
+        public static string ThrowException {
+            get {
+                return ResourceManager.GetString("ThrowException", resourceCulture);
+            }
+        }
     }
 }

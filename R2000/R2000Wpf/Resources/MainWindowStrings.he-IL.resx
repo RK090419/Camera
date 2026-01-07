@@ -123,4 +123,7 @@
   <data name="Greeting" xml:space="preserve">
     <value>שלום מקובץ המחרוזות</value>
   </data>
+  <data name="ThrowException" xml:space="preserve">
+    <value>זרוק שגיאה</value>
+  </data>
 </root>

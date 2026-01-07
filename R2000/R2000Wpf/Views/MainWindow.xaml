@@ -12,6 +12,7 @@
                    FontSize="20" FontWeight="Bold"/>
         <Button Command="{Binding ChangeCultureCommand}"
                 Content="{Binding MainWindowStrings.ChangeCultureBtn, Source={x:Static res:LocalizedStrings.Instance}}"/>
+        <Button Content="{Binding MainWindowStrings.ThrowException, Source={x:Static res:LocalizedStrings.Instance}}" Command="{Binding ThrowExceptionCommand}"/>
 
     </StackPanel>
 </Window>
