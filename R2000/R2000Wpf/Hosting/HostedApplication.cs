@@ -77,11 +77,10 @@ public abstract class HostedApplication : Application, IHostedService
         wpfApplicationBuilder.Services.AddSingleton((IServiceProvider x) => (HostedApplication)Application.Current);
         return wpfApplicationBuilder;
     }
-    public void RunWithStartingWindow<T>() where T : Window, new()
+    public void RunWithStartingWindow(Window startingWindow)
     {
         UIHelpers.EnsureUIThread();
-        T window = new();
-        window.Show();
+        startingWindow.Show();
         RunHosted();
     }
     private int RunHosted()
