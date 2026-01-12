@@ -6,13 +6,43 @@
         xmlns:local="clr-namespace:R2000Wpf"
         xmlns:res="clr-namespace:R2000Wpf.Resources"
         mc:Ignorable="d" 
+        xmlns:controls="clr-namespace:R2000Wpf.Controls"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Assets/Svgs/LoginBackground.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Background="#95B0DD">
+        <Border x:Name="MainBorder"
+                CornerRadius="10" Background="#B2D2F3" Margin="20" 
+                HorizontalAlignment="Center" VerticalAlignment="Center" 
+                BorderThickness="1" MinHeight="300" MinWidth="700"
+                BorderBrush="#A5B7D7">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="36*"/>
+                </Grid.RowDefinitions>
+                <controls:TopBar Grid.Row="0" />
+                <Grid Grid.Row="2" Name="NavigationGrid">
+                    <ContentControl Height="{Binding Path=ActualHeight, ElementName=NavigationGrid}" 
+                                    Width="{Binding Path=ActualWidth, ElementName=NavigationGrid}"
+                                Style="{StaticResource LoginBackground}"/>
+                </Grid>
+
+            </Grid>
+        </Border>    
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBlock Text="{Binding Greeting}" 
                    FontSize="20" FontWeight="Bold"/>
-        <Button Command="{Binding ChangeCultureCommand}"
+            <Button Command="{Binding ChangeCultureCommand}" 
                 Content="{Binding MainWindowStrings.ChangeCultureBtn, Source={x:Static res:LocalizedStrings.Instance}}"/>
         <Button Content="{Binding MainWindowStrings.ThrowException, Source={x:Static res:LocalizedStrings.Instance}}" Command="{Binding ThrowExceptionCommand}"/>
 
     </StackPanel>
+    </Grid>
 </Window>

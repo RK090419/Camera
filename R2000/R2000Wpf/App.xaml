@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:R2000Wpf"
              xmlns:hosting="clr-namespace:R2000Wpf.Hosting">
     <hosting:HostedApplication.Resources>
-
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </hosting:HostedApplication.Resources>
 </hosting:HostedApplication>
