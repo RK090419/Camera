@@ -6,7 +6,7 @@
     <hosting:HostedApplication.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                
+                <ResourceDictionary Source="/Assets/Svgs/LoginBackground.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </hosting:HostedApplication.Resources>

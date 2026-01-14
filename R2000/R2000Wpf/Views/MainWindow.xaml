@@ -8,13 +8,6 @@
         mc:Ignorable="d" 
         xmlns:controls="clr-namespace:R2000Wpf.Controls"
         Title="MainWindow" Height="450" Width="800">
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Assets/Svgs/LoginBackground.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
     <Grid Background="#95B0DD">
         <Border x:Name="MainBorder"
                 CornerRadius="10" Background="#B2D2F3" Margin="20" 

@@ -6,6 +6,10 @@ namespace R2000Wpf;
 
 public partial class App : HostedApplication
 {
+    public App()
+    {
+        InitializeComponent();
+    }
     public ILogger<App>? Logger { get; private set; }
 
     public void InitLogger()
