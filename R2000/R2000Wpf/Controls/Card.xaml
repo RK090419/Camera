@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="R2000Wpf.Controls.Card"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:R2000Wpf.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="550">
+    <Border BorderBrush="#CBDBF6" Background="#E9F3FE"
+            BorderThickness="1" CornerRadius="50"
+            Padding="7">
+        <Border x:Name="ContentBorder" Background="#F0F0F9" ClipToBounds="True"
+                CornerRadius="50" BorderThickness="7" Padding="10"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#7CCFE7" Offset="0.0"/>
+                    <GradientStop Color="#88D2CD" Offset="0.1"/>
+                    <GradientStop Color="#C5EBDF" Offset="0.2"/>
+                    <GradientStop Color="#9ADDCC" Offset="0.3"/>
+                    <GradientStop Color="#BCE8E2" Offset="0.4"/>
+                    <GradientStop Color="#A6D8B2" Offset="0.5"/>
+                    <GradientStop Color="#BCD5A4" Offset="0.6"/>
+                    <GradientStop Color="#D9D394" Offset="0.7"/>
+                    <GradientStop Color="#ADBDDF" Offset="0.8"/>
+                    <GradientStop Color="#77B0EB" Offset="0.9"/>
+                    <GradientStop Color="#78A9FA" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <ContentPresenter ClipToBounds="True" 
+                Content="{Binding CardContent, RelativeSource={RelativeSource AncestorType=UserControl}}" >
+            </ContentPresenter>
+        </Border>
+    </Border>
+</UserControl>

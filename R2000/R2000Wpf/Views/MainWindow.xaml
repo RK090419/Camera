@@ -11,8 +11,8 @@
     <Grid Background="#95B0DD">
         <Border x:Name="MainBorder"
                 CornerRadius="10" Background="#B2D2F3" Margin="20" 
-                HorizontalAlignment="Center" VerticalAlignment="Center" 
-                BorderThickness="1" MinHeight="300" MinWidth="700"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                BorderThickness="1"
                 BorderBrush="#A5B7D7">
             <Grid >
                 <Grid.RowDefinitions>
@@ -20,21 +20,38 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="36*"/>
                 </Grid.RowDefinitions>
+                
                 <controls:TopBar Grid.Row="0" />
                 <Grid Grid.Row="2" Name="NavigationGrid">
-                    <ContentControl Height="{Binding Path=ActualHeight, ElementName=NavigationGrid}" 
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <ContentControl Grid.ColumnSpan="3" Grid.RowSpan="3" 
+                                    Height="{Binding Path=ActualHeight, ElementName=NavigationGrid}" 
                                     Width="{Binding Path=ActualWidth, ElementName=NavigationGrid}"
                                 Style="{StaticResource LoginBackground}"/>
+                    <!--here im going to put my navigation frame-->
+                    <controls:Card Grid.Column="1" Grid.Row="1" 
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <controls:LoginControl />
+                    </controls:Card>
                 </Grid>
 
             </Grid>
         </Border>    
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Text="{Binding Greeting}" 
+        <StackPanel Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="{Binding Greeting}" 
                    FontSize="20" FontWeight="Bold"/>
-            <Button Command="{Binding ChangeCultureCommand}" 
+            <Button Command="{Binding ChangeCultureCommand}" Style="{StaticResource LoginBtn}"
                 Content="{Binding MainWindowStrings.ChangeCultureBtn, Source={x:Static res:LocalizedStrings.Instance}}"/>
-        <Button Content="{Binding MainWindowStrings.ThrowException, Source={x:Static res:LocalizedStrings.Instance}}" Command="{Binding ThrowExceptionCommand}"/>
+            <Button Content="{Binding MainWindowStrings.ThrowException, Source={x:Static res:LocalizedStrings.Instance}}" Command="{Binding ThrowExceptionCommand}"/>
 
     </StackPanel>
     </Grid>

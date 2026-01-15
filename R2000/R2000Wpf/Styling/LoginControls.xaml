@@ -1,0 +1,55 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:controls="clr-namespace:R2000Wpf.Controls"
+                    xmlns:res="clr-namespace:R2000Wpf.Resources"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="controls:LoginControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:LoginControl">
+                    <Grid Margin="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock  Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" TextAlignment="Center"
+                                    FontSize="16" FontWeight="Black" Foreground="#374975" FontFamily="Corbel"
+                                    Text="{Binding LoginControlStrings.Welcome, Source={x:Static res:LocalizedStrings.Instance}}"/>
+                        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" TextAlignment="Center"
+                                   FontSize="14" FontWeight="Regular" Foreground="#374975" FontFamily="Corbel"
+                                   Text="{Binding LoginControlStrings.SignIn, Source={x:Static res:LocalizedStrings.Instance}}"/>
+                        <TextBox Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" TextAlignment="Center"
+                                 Height="30" 
+                                 Text="Email"/>
+                        <TextBox Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" TextAlignment="Center"
+                            Margin="0,7,0,7" Height="30"
+                                 Text="Passward"/>
+                        <Button Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Stretch"
+                                Height="30" Margin="0,0,0,7"
+                             Style="{DynamicResource LoginBtn}" Content="Sign In"/>
+                        <TextBlock Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left"
+                            FontSize="12" FontWeight="Regular" Foreground="#374975" FontFamily="Corbel"
+                            Text="Dont Have an acount yet?"/>
+                        <Button Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left"
+                            Content="Click to sign up" />
+                        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="0">
+                            <CheckBox/>
+                            <TextBlock Text="Remember me" Margin="5,0,0,0"
+                                    FontSize="12" FontWeight="Regular" Foreground="#374975" FontFamily="Corbel"/>
+                        </StackPanel>
+                        <Button Grid.Row="6" Grid.Column="1" HorizontalAlignment="Right"
+                            Content="Forgot Passward?"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
