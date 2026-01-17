@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using Core.Interfaces;
 using R2000Wpf.Helpers;
-namespace R2000Wpf.Services;
+namespace R2000Wpf.Models;
 public abstract partial class ViewModelBase : ObservableObject, IViewModelBase
 {
     private CancellationTokenSource? _cts;

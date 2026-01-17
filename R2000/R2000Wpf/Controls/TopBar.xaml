@@ -6,7 +6,10 @@
              xmlns:local="clr-namespace:R2000Wpf.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Red">
-            
+    <Grid Background="#EAEAF4" Name="NavigationGrid">
+        <Button HorizontalAlignment="Right" Margin="0,0,10,0"
+            Height="{Binding Path=ActualHeight, ElementName=NavigationGrid}" 
+        Style="{StaticResource LangBtn}"
+                Command="{Binding LangCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
     </Grid>
 </UserControl>

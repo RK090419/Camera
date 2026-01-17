@@ -4,13 +4,15 @@ using R2000Wpf.Hosting;
 
 namespace R2000Wpf;
 
-public partial class App : HostedApplication
+public partial class App : HostedApplication<App>
 {
     public App()
     {
         InitializeComponent();
     }
     public ILogger<App>? Logger { get; private set; }
+    public IServiceScope? CurrentScope { get; private set; }
+
 
     public void InitLogger()
     {

@@ -117,28 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Email" xml:space="preserve">
-    <value>מייל</value>
-  </data>
-  <data name="ForgotPassward" xml:space="preserve">
-    <value>שכחתי סיסמא</value>
-  </data>
-  <data name="NoAcount" xml:space="preserve">
-    <value>עוד אין לך חשבון?</value>
-  </data>
-  <data name="Passward" xml:space="preserve">
-    <value>סיסמא</value>
-  </data>
-  <data name="RememberMe" xml:space="preserve">
-    <value>זכור אותי</value>
-  </data>
-  <data name="SignIn" xml:space="preserve">
-    <value>יש להתחבר כדי להמשיך</value>
-  </data>
-  <data name="SignUp" xml:space="preserve">
-    <value>להרשמה לחץ</value>
-  </data>
-  <data name="Welcome" xml:space="preserve">
-    <value>ברוך השב</value>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
   </data>
 </root>

@@ -22,27 +22,11 @@
                 </Grid.RowDefinitions>
                 
                 <controls:TopBar Grid.Row="0" />
-                <Grid Grid.Row="2" Name="NavigationGrid">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="2.5*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="20*"/>
-                        <RowDefinition Height="2*"/>
-                    </Grid.RowDefinitions>
-                    <ContentControl Grid.ColumnSpan="3" Grid.RowSpan="3" 
-                                    Height="{Binding Path=ActualHeight, ElementName=NavigationGrid}" 
-                                    Width="{Binding Path=ActualWidth, ElementName=NavigationGrid}"
-                                Style="{StaticResource LoginBackground}"/>
-                    <!--here im going to put my navigation frame-->
-                    <controls:Card Grid.Column="1" Grid.Row="1" 
-                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                        <controls:LoginControl />
-                    </controls:Card>
-                </Grid>
+                <controls:NavigationFrame Grid.Row="2" x:Name="NavigationWindow"
+                                          HorizontalAlignment="Stretch"
+                                          VerticalAlignment="Stretch"
+                                          Loaded="PageFrame_OnLoaded"/>
+                
 
             </Grid>
         </Border>    

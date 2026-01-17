@@ -7,9 +7,12 @@ using Microsoft.Extensions.Logging;
 using R2000Wpf.Helpers;
 
 namespace R2000Wpf.Hosting;
-public abstract class HostedApplication : Application, IHostedService
+public abstract class HostedApplication : Application
 {
     public IServiceProvider? Services { get; internal set; }
+}
+public abstract class HostedApplication<T> : HostedApplication, IHostedService where T : HostedApplication<T>, new()
+{
     public IHostApplicationLifetime? HostLifetime { get; private set; }
 
     private IHost? _host;
@@ -29,7 +32,7 @@ public abstract class HostedApplication : Application, IHostedService
 
         IMetricsBuilder IHostApplicationBuilder.Metrics => _hostBuilder.Metrics;
 
-        public HostedApplication Build(ServiceProviderOptions? serviceProviderOptions = null)
+        public T Build(ServiceProviderOptions? serviceProviderOptions = null)
         {
             serviceProviderOptions ??= new ServiceProviderOptions
             {
@@ -37,7 +40,7 @@ public abstract class HostedApplication : Application, IHostedService
             };
 
             _hostBuilder.ConfigureContainer(new DefaultServiceProviderFactory(serviceProviderOptions));
-            _hostBuilder.Services.AddHostedService((IServiceProvider x) => (HostedApplication)Application.Current);
+            _hostBuilder.Services.AddHostedService((IServiceProvider x) => (T)Application.Current);
 
             //add loggings
             _hostBuilder.Logging.ClearProviders();
@@ -45,7 +48,7 @@ public abstract class HostedApplication : Application, IHostedService
             _hostBuilder.Logging.SetMinimumLevel(LogLevel.Debug);
 
             var host = _hostBuilder.Build();
-            var app = (HostedApplication)Application.Current;
+            var app = (T)Application.Current;
 
             app._host = host;
             app.Services = host.Services;
@@ -67,7 +70,7 @@ public abstract class HostedApplication : Application, IHostedService
         }
     }
 
-    public new static HostedApplication Current => (HostedApplication)Application.Current;
+    public new static T Current => (T)Application.Current;
 
     public static WpfApplicationBuilder CreateBuilder(Func<HostApplicationBuilder>? hostBuilderFactory = null)
     {
@@ -76,7 +79,7 @@ public abstract class HostedApplication : Application, IHostedService
 
 
         WpfApplicationBuilder wpfApplicationBuilder = new WpfApplicationBuilder(hostBuilderFactory);
-        wpfApplicationBuilder.Services.AddSingleton((IServiceProvider x) => (HostedApplication)Application.Current);
+        wpfApplicationBuilder.Services.AddSingleton((IServiceProvider x) => (T)Application.Current);
         return wpfApplicationBuilder;
     }
     public void RunWithStartingWindow(Window startingWindow)
@@ -159,7 +162,7 @@ public abstract class HostedApplication : Application, IHostedService
             throw new InvalidOperationException("UseExceptionHandler must be called after Build().");
         }
         // handler(Exception ex, bool canHandle) returns true if handled
-        var logger = Services?.GetRequiredService<ILogger<HostedApplication>>();
+        var logger = Services?.GetRequiredService<ILogger<T>>();
 
         DispatcherUnhandledException += (s, e) =>
         {

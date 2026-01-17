@@ -28,25 +28,25 @@
                                    Text="{Binding LoginControlStrings.SignIn, Source={x:Static res:LocalizedStrings.Instance}}"/>
                         <TextBox Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" TextAlignment="Center"
                                  Height="30" 
-                                 Text="Email"/>
+                                 Text="{Binding LoginControlStrings.Email, Source={x:Static res:LocalizedStrings.Instance}, Mode=OneWay}"/>
                         <TextBox Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" TextAlignment="Center"
                             Margin="0,7,0,7" Height="30"
-                                 Text="Passward"/>
+                                 Text="{Binding LoginControlStrings.Passward, Source={x:Static res:LocalizedStrings.Instance}, Mode=OneWay}"/>
                         <Button Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Stretch"
-                                Height="30" Margin="0,0,0,7"
+                                Height="30" Margin="0,0,0,7" Command="{TemplateBinding LogInCommand}"
                              Style="{DynamicResource LoginBtn}" Content="Sign In"/>
                         <TextBlock Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left"
                             FontSize="12" FontWeight="Regular" Foreground="#374975" FontFamily="Corbel"
-                            Text="Dont Have an acount yet?"/>
+                            Text="{Binding LoginControlStrings.NoAcount, Source={x:Static res:LocalizedStrings.Instance}}"/>
                         <Button Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left"
-                            Content="Click to sign up" />
+                            Content="{Binding LoginControlStrings.SignUp, Source={x:Static res:LocalizedStrings.Instance}}" />
                         <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="0">
                             <CheckBox/>
-                            <TextBlock Text="Remember me" Margin="5,0,0,0"
+                            <TextBlock Text="{Binding LoginControlStrings.RememberMe, Source={x:Static res:LocalizedStrings.Instance}}" Margin="5,0,0,0"
                                     FontSize="12" FontWeight="Regular" Foreground="#374975" FontFamily="Corbel"/>
                         </StackPanel>
                         <Button Grid.Row="6" Grid.Column="1" HorizontalAlignment="Right"
-                            Content="Forgot Passward?"/>
+                            Content="{Binding LoginControlStrings.ForgotPassward, Source={x:Static res:LocalizedStrings.Instance}}"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

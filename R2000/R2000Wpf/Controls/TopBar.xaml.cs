@@ -1,28 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using CommunityToolkit.Mvvm.Input;
+using R2000Wpf.Resources;
 
 namespace R2000Wpf.Controls
 {
-    /// <summary>
-    /// Interaction logic for TopBar.xaml
-    /// </summary>
+
     public partial class TopBar : UserControl
     {
         public TopBar()
         {
             InitializeComponent();
+
+            LangCommand = new RelayCommand(() =>
+            {
+                var defaultCulture = new CultureInfo("en-US");
+                var hebrewCulture = new CultureInfo("he-IL");
+
+                var current = CultureInfo.CurrentUICulture;
+
+                LocalizedStrings.Instance.ChangeCulture(current.Name == defaultCulture.Name ?
+                    hebrewCulture : defaultCulture);
+                current = CultureInfo.CurrentUICulture;
+            });
+
         }
+
+
+        public ICommand? LangCommand
+        {
+            get { return (ICommand?)GetValue(LangCommandProperty); }
+            set { SetValue(LangCommandProperty, value); }
+        }
+
+        public static readonly DependencyProperty LangCommandProperty =
+            DependencyProperty.Register("LangCommand", typeof(ICommand), typeof(TopBar));
+
+
     }
 }

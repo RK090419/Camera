@@ -27,6 +27,7 @@ public class LocalizedStrings : INotifyPropertyChanged
 
     public MainWindowStrings MainWindowStrings => new();
     public LoginControlStrings LoginControlStrings => new();
+    public UserViewStrings UserViewStrings => new();
 
     public string GetString(Func<object> resourceProperty)
     {

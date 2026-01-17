@@ -19,4 +19,15 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="LangBtn" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <ContentControl 
+                        Height="{TemplateBinding Height}" Style="{StaticResource LangIcon}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

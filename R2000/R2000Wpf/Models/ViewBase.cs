@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Core.Interfaces;
 
-namespace R2000Wpf.Services;
+namespace R2000Wpf.Models;
 public abstract class ViewBase : UserControl { }
 
 public abstract class ViewBase<T> : ViewBase, IViewBase where T : IViewModelBase
@@ -39,6 +39,6 @@ public abstract class ViewBase<T> : ViewBase, IViewBase where T : IViewModelBase
             throw new InvalidOperationException("Invalid ViewModel type");
         }
 
-        this.DataContext = vm;
+        DataContext = vm;
     }
 }

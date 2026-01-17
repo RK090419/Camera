@@ -22,14 +22,14 @@ namespace R2000Wpf.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class LoginControlStrings {
+    public class UserViewStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal LoginControlStrings() {
+        internal UserViewStrings() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace R2000Wpf.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("R2000Wpf.Resources.LoginControlStrings", typeof(LoginControlStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("R2000Wpf.Resources.UserViewStrings", typeof(UserViewStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,74 +61,11 @@ namespace R2000Wpf.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email.
+        ///   Looks up a localized string similar to Back.
         /// </summary>
-        public static string Email {
+        public static string Back {
             get {
-                return ResourceManager.GetString("Email", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Forgot Passward?.
-        /// </summary>
-        public static string ForgotPassward {
-            get {
-                return ResourceManager.GetString("ForgotPassward", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Dont Have an acount yet?.
-        /// </summary>
-        public static string NoAcount {
-            get {
-                return ResourceManager.GetString("NoAcount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Passward.
-        /// </summary>
-        public static string Passward {
-            get {
-                return ResourceManager.GetString("Passward", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Remember me.
-        /// </summary>
-        public static string RememberMe {
-            get {
-                return ResourceManager.GetString("RememberMe", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sign in to your acount to continue.
-        /// </summary>
-        public static string SignIn {
-            get {
-                return ResourceManager.GetString("SignIn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Click to sign up.
-        /// </summary>
-        public static string SignUp {
-            get {
-                return ResourceManager.GetString("SignUp", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Welcome back!.
-        /// </summary>
-        public static string Welcome {
-            get {
-                return ResourceManager.GetString("Welcome", resourceCulture);
+                return ResourceManager.GetString("Back", resourceCulture);
             }
         }
     }

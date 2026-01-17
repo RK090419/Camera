@@ -1,6 +1,9 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Core.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using R2000Wpf.ViewModels;
 
 namespace R2000Wpf.Views;
@@ -10,6 +13,8 @@ namespace R2000Wpf.Views;
 /// </summary>
 public partial class MainWindow : Window
 {
+    INavigationService Nav => DesignerProperties.GetIsInDesignMode(new DependencyObject()) ? null! : App.Current.Services!.GetRequiredService<INavigationService>();
+
     public MainWindow(MainWindowViewModel vm)
     {
         DataContext = vm;
@@ -27,5 +32,13 @@ public partial class MainWindow : Window
                 RadiusY = border.CornerRadius.TopLeft
             };
         }
+    }
+    private void PageFrame_OnLoaded(object? sender, RoutedEventArgs e)
+    {
+        if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
+        {
+            return;
+        }
+        Nav.Navigate<LoginView>();
     }
 }

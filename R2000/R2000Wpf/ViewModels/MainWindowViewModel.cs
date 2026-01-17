@@ -1,8 +1,8 @@
 ﻿using System.Globalization;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.Logging;
+using R2000Wpf.Models;
 using R2000Wpf.Resources;
-using R2000Wpf.Services;
 
 namespace R2000Wpf.ViewModels;
 
