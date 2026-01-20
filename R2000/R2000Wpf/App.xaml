@@ -8,6 +8,7 @@
     <hosting:HostedApplication.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Converters/Converters.xaml"/>
                 <ResourceDictionary Source="/Assets/Svgs/LoginBackground.xaml"/>
                 <ResourceDictionary Source="/Assets/Svgs/LangIcon.xaml"/>
                 <ResourceDictionary Source="/Styling/Styles.xaml"/>

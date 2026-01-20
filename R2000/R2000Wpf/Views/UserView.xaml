@@ -7,6 +7,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:R2000Wpf.Models"
+             xmlns:controls="clr-namespace:R2000Wpf.Controls"
              xmlns:vm="clr-namespace:R2000Wpf.ViewModels" d:DataContext="{d:DesignInstance Type=vm:UserViewModel}"
     mc:Ignorable="d"   
              d:DesignHeight="450" d:DesignWidth="800">
@@ -19,19 +20,32 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Border Background="Red" Width="100" Height="100"
+        <Border Background="Red" Width="100" Height="30"
                 VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="0"/>
         <Border Background="Gray"
         VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="0"/>
-        <Border Background="Yellow" Height="100"
+        <Border Background="Yellow" 
         VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="1"/>
-        <Border Background="Blue"
-VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="1">
-            <Button Command="{Binding BackCommand}" 
+        <controls:CustomTabControl 
+                    Grid.Column="1" Grid.Row="1" CornerRadius="5"
+                    BorderThickness="1" BorderBrush="#6CADE4"
+                    Background="#DFE8F6">
+            <TabItem Width="50" Height="10">
+                <Grid Background="Pink">
+                    <Border Background="Blue" Margin="20"
+                        VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="1">
+                        <Button Command="{Binding BackCommand}" 
                     Content="{Binding UserViewStrings.Back, Source={x:Static res:LocalizedStrings.Instance}}" 
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     Height="30" Width="300" />
-        </Border>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <TabItem Width="50" Height="10">
+                <Grid Background="Purple" />
+            </TabItem>
+
+        </controls:CustomTabControl>
 
     </Grid>
 </local:ViewBase>

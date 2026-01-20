@@ -135,6 +135,9 @@
   <data name="SignIn" xml:space="preserve">
     <value>יש להתחבר כדי להמשיך</value>
   </data>
+  <data name="SignInBtn" xml:space="preserve">
+    <value>התחבר</value>
+  </data>
   <data name="SignUp" xml:space="preserve">
     <value>להרשמה לחץ</value>
   </data>

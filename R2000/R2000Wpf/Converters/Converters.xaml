@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:converters="clr-namespace:R2000Wpf.Converters"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <converters:RectFromBorder x:Key="RectFromBorder"/>
+
+
+</ResourceDictionary>

@@ -9,7 +9,7 @@
         xmlns:controls="clr-namespace:R2000Wpf.Controls"
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#95B0DD">
-        <Border x:Name="MainBorder"
+        <controls:RBorder x:Name="MainBorder"
                 CornerRadius="10" Background="#B2D2F3" Margin="20" 
                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                 BorderThickness="1"
@@ -20,21 +20,19 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="36*"/>
                 </Grid.RowDefinitions>
-                
+
                 <controls:TopBar Grid.Row="0" />
                 <controls:NavigationFrame Grid.Row="2" x:Name="NavigationWindow"
                                           HorizontalAlignment="Stretch"
                                           VerticalAlignment="Stretch"
                                           Loaded="PageFrame_OnLoaded"/>
-                
+
 
             </Grid>
-        </Border>    
+        </controls:RBorder>
         <StackPanel Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="{Binding Greeting}" 
                    FontSize="20" FontWeight="Bold"/>
-            <Button Command="{Binding ChangeCultureCommand}" Style="{StaticResource LoginBtn}"
-                Content="{Binding MainWindowStrings.ChangeCultureBtn, Source={x:Static res:LocalizedStrings.Instance}}"/>
             <Button Content="{Binding MainWindowStrings.ThrowException, Source={x:Static res:LocalizedStrings.Instance}}" Command="{Binding ThrowExceptionCommand}"/>
 
     </StackPanel>

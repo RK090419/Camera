@@ -3,5 +3,6 @@
     <ResourceDictionary.MergedDictionaries>
             <ResourceDictionary Source="/Styling/Buttons.xaml"/>
             <ResourceDictionary Source="/Styling/LoginControls.xaml"/>
+            <ResourceDictionary Source="/Styling/TabControls.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>

@@ -34,7 +34,7 @@
                                  Text="{Binding LoginControlStrings.Passward, Source={x:Static res:LocalizedStrings.Instance}, Mode=OneWay}"/>
                         <Button Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Stretch"
                                 Height="30" Margin="0,0,0,7" Command="{TemplateBinding LogInCommand}"
-                             Style="{DynamicResource LoginBtn}" Content="Sign In"/>
+                             Style="{DynamicResource LoginBtn}" Content="{Binding LoginControlStrings.SignInBtn, Source={x:Static res:LocalizedStrings.Instance}}"/>
                         <TextBlock Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left"
                             FontSize="12" FontWeight="Regular" Foreground="#374975" FontFamily="Corbel"
                             Text="{Binding LoginControlStrings.NoAcount, Source={x:Static res:LocalizedStrings.Instance}}"/>

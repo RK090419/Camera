@@ -1,0 +1,46 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:controls="clr-namespace:R2000Wpf.Controls"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="controls:CustomTabControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:CustomTabControl">
+                    <controls:RBorder CornerRadius="{TemplateBinding CornerRadius}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="20*"/>
+                            </Grid.RowDefinitions>
+                            <TabPanel x:Name="Headers"
+                              Grid.Row="0"
+                              Background="#BDC6D4"
+                              IsItemsHost="True"/>
+                            <controls:RBorder x:Name="ContentPanelBorder"
+                                Grid.Row="1" 
+                                KeyboardNavigation.DirectionalNavigation="Contained">
+                                <ContentPresenter
+                                Name="PART_SelectedContentHost"
+                                ContentSource="SelectedContent"
+                                Margin="{TemplateBinding Padding}"/>
+
+                            </controls:RBorder>
+                        </Grid>
+                    </controls:RBorder>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--<Style TargetType="TabItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+    
+</ResourceDictionary>

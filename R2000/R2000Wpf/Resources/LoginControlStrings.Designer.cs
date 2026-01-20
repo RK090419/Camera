@@ -115,6 +115,15 @@ namespace R2000Wpf.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sign In.
+        /// </summary>
+        public static string SignInBtn {
+            get {
+                return ResourceManager.GetString("SignInBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Click to sign up.
         /// </summary>
         public static string SignUp {
