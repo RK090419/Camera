@@ -7,5 +7,7 @@ public partial class UserView : ViewBase<UserViewModel>
     public UserView()
     {
         InitializeComponent();
+        OptionsPanel.SetExplorerReference(ExplorerPanel);
+
     }
 }

@@ -33,6 +33,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>MainWindowStrings.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\UserOptionsControlStrings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UserOptionsControlStrings.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\UserViewStrings.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -48,6 +53,10 @@
     <EmbeddedResource Update="Resources\MainWindowStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MainWindowStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\UserOptionsControlStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserOptionsControlStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\UserViewStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

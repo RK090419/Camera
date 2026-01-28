@@ -12,40 +12,36 @@
     mc:Ignorable="d"   
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Border Background="Red" Width="100" Height="30"
-                VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="0"/>
-        <Border Background="Gray"
-        VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="0"/>
-        <Border Background="Yellow" 
-        VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="1"/>
-        <controls:CustomTabControl 
-                    Grid.Column="1" Grid.Row="1" CornerRadius="5"
-                    BorderThickness="1" BorderBrush="#6CADE4"
-                    Background="#DFE8F6">
-            <TabItem Width="50" Height="10">
-                <Grid Background="Pink">
-                    <Border Background="Blue" Margin="20"
-                        VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="1">
-                        <Button Command="{Binding BackCommand}" 
-                    Content="{Binding UserViewStrings.Back, Source={x:Static res:LocalizedStrings.Instance}}" 
-                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Height="30" Width="300" />
-                    </Border>
-                </Grid>
-            </TabItem>
-            <TabItem Width="50" Height="10">
-                <Grid Background="Purple" />
-            </TabItem>
-
-        </controls:CustomTabControl>
-
+        <DockPanel >
+            <Border Background="Red" Width="100" DockPanel.Dock="Left"/>
+            <Border Background="Yellow" />
+        </DockPanel>
+        <DockPanel Grid.Row="1">
+            <controls:UserOptionsControl x:Name="OptionsPanel" DockPanel.Dock="Left"  />
+            <controls:ExplorerControl x:Name="ExplorerPanel" DockPanel.Dock="Left"/>
+            <controls:CustomTabControl 
+                CornerRadius="5" 
+                BorderThickness="1" BorderBrush="#6CADE4"
+                Background="#DFE8F6">
+                <TabItem Width="50" Height="10">
+                    <Grid Background="Pink">
+                        <Border Background="Blue" Margin="20"
+                    VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="1">
+                            <Button Command="{Binding BackCommand}" 
+                Content="{Binding UserViewStrings.Back, Source={x:Static res:LocalizedStrings.Instance}}" 
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                Height="30" Width="300" />
+                        </Border>
+                    </Grid>
+                </TabItem>
+                <TabItem Width="50" Height="10">
+                    <Grid Background="Purple" />
+                </TabItem>
+            </controls:CustomTabControl>
+        </DockPanel>
     </Grid>
 </local:ViewBase>

@@ -13,9 +13,7 @@ public sealed partial class MainWindowViewModel : ViewModelBase
     {
         _logger = logger;
         LocalizedStrings.Instance.PropertyChanged += (s, e) =>
-        {
             OnPropertyChanged(string.Empty);
-        };
     }
 
     public string Greeting => MainWindowStrings.Greeting;

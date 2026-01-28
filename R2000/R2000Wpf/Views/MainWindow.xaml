@@ -30,6 +30,7 @@
 
             </Grid>
         </controls:RBorder>
+        
         <StackPanel Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="{Binding Greeting}" 
                    FontSize="20" FontWeight="Bold"/>
