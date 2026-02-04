@@ -12,16 +12,23 @@
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
-                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="15*"/>
                             </Grid.RowDefinitions>
-                            <TabPanel x:Name="Headers"
-                              Grid.Row="0"
-                              Background="#BDC6D4"
-                              IsItemsHost="True"/>
+                            <controls:RBorder
+                                Grid.Row="0"
+                                CornerRadius="5"
+                                Background="#BDC6D4"
+                                Margin="{TemplateBinding Padding}">
+                                <TabPanel x:Name="Headers"
+                                  IsItemsHost="True"/>  
+                            </controls:RBorder>
                             <controls:RBorder x:Name="ContentPanelBorder"
-                                Grid.Row="1" 
+                                Grid.Row="1"                             
+                                Background="#BDC6D4"
+                                Margin="{TemplateBinding Padding}"
+                                CornerRadius="5"
                                 KeyboardNavigation.DirectionalNavigation="Contained">
-                                <ContentPresenter
+                                <ContentPresenter 
                                 Name="PART_SelectedContentHost"
                                 ContentSource="SelectedContent"
                                 Margin="{TemplateBinding Padding}"/>
@@ -33,14 +40,52 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <!--<Style TargetType="TabItem">
+    
+    <Style TargetType="TabItem">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    
+                    <AdornerDecorator>
+                        <Border Background="#8699CB" BorderBrush="#203354"
+                                BorderThickness="1" CornerRadius="5">
+                            <TextBlock Text="TubName-file name" Margin="3" 
+                                       Foreground="#203354" FontFamily="Corbel"
+                                       VerticalAlignment="Center" TextTrimming="CharacterEllipsis"/>
+                        </Border>
+                    </AdornerDecorator>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>-->
+    </Style>
+
+    <Style x:Key="TubItemCloseBtn" TargetType="Button">
+        <Setter Property="Content" Value="X"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Foreground" Value="#203354"/>
+        <Setter Property="FontFamily" Value="Gabriola"/>
+        <Setter Property="FontWeight" Value="ExtraBlack"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                        CornerRadius="2">
+                        <ContentPresenter 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="{TemplateBinding Content}" />
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#A8BBED"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#8699CB"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     
 </ResourceDictionary>
