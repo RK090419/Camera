@@ -2,11 +2,12 @@
 using System.Windows.Controls;
 using System.Windows.Markup;
 using System.Windows.Media;
+using R2000Wpf.Interfaces;
 
 namespace R2000Wpf.Controls;
 
 [ContentProperty(nameof(CardContent))]
-public partial class Card : UserControl
+public partial class Card : UserControl, IContentChangingControl
 {
     public Card()
     {
@@ -35,7 +36,10 @@ public partial class Card : UserControl
         get => (UIElement)GetValue(CardContentProperty);
         set => SetValue(CardContentProperty, value);
     }
-
+    public void SetContent(UIElement content)
+    {
+        CardContent = content;
+    }
 
 
 }

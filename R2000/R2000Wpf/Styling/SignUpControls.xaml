@@ -1,8 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:controls="clr-namespace:R2000Wpf.Controls"
-                    xmlns:res="clr-namespace:R2000Wpf.Resources"
+xmlns:res="clr-namespace:R2000Wpf.Resources"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style TargetType="controls:LoginControl">
+    <Style TargetType="controls:SignUpControl">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:LoginControl">
@@ -33,13 +33,13 @@
                             Margin="0,7,0,7" Height="30"
                                  Text="{Binding LoginControlStrings.Passward, Source={x:Static res:LocalizedStrings.Instance}, Mode=OneWay}"/>
                         <Button Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" IsDefault="True"
-                                Height="30" Margin="0,0,0,7" Command="{TemplateBinding LogInCommand}"
+                                Height="30" Margin="0,0,0,7" 
                              Style="{DynamicResource LoginBtn}" Content="{Binding LoginControlStrings.SignInBtn, Source={x:Static res:LocalizedStrings.Instance}}"/>
                         <TextBlock Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left"
                             FontSize="12" FontWeight="Regular" Foreground="#374975" FontFamily="Corbel"
                             Text="{Binding LoginControlStrings.NoAcount, Source={x:Static res:LocalizedStrings.Instance}}"/>
                         <Button Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left"
-                                Command="{TemplateBinding SignUpCommand}"
+                                
                             Content="{Binding LoginControlStrings.SignUp, Source={x:Static res:LocalizedStrings.Instance}}" />
                         <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="0">
                             <CheckBox/>
@@ -53,4 +53,5 @@
             </Setter.Value>
         </Setter>
     </Style>
+
 </ResourceDictionary>

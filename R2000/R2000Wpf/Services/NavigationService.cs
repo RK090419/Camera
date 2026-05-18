@@ -49,3 +49,5 @@ public sealed partial class NavigationService : INavigationService
         return true;
     }
 }
+
+

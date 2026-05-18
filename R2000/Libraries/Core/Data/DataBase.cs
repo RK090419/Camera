@@ -50,7 +50,7 @@ public static class DataBase
     }
 
     // Sign Up a new user
-    public static bool SignUp(string userName, string password, string email = null)
+    public static bool SignUp(string userName, string password, string? email = null)
     {
         string passwordHash = HashPassword(password);
 
@@ -86,9 +86,9 @@ public static class DataBase
         cmd.Parameters.AddWithValue("@username", userName);
 
         var result = cmd.ExecuteScalar();
-        if (result == null) return false;
+        if (result is null) return false;
 
-        string storedHash = result.ToString();
+        string storedHash = result.ToString()!;
         return storedHash == passwordHash;
     }
 }
